@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "../pages/Portfolio.css";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import social from "../assets/social-network-api.png";
+import ecommerce from "../assets/e-commerce-api-image.png";
+import team from "../assets/team-profile-generator.png";
+import weather from "../assets/weather-dashboard.png";
+import daily from "../assets/daily-planner.png";
+import coding from "../assets/coding-quiz.png";
+import passgenerator from "../assets/password-generator.png";
+import videoplayer from "../assets/video-player.png";
 
 const cardData = [
   {
@@ -27,7 +37,7 @@ const cardData = [
   {
     id: 3,
     title: "Social Network API",
-    img: "project2.jpg",
+    img: social,
     description:
       "An API for a social network web application where users can share their thoughts, react to friends' thoughts, and create a friend list using a NoSQL database. The project aims to showcase the technologies commonly used in social networking platforms",
     images: ["image3.jpg", "image4.jpg"],
@@ -37,7 +47,7 @@ const cardData = [
   {
     id: 4,
     title: "MVC Tech Blog",
-    img: "https://github.com/VascoMiguens/MVC-Tech-Blog/blob/master/public/assets/Tech_blog_logo.svg",
+    img: "https://raw.githubusercontent.com/VascoMiguens/MVC-Tech-Blog/ce1aec552fe323f374c335afdc5bf358a995139c/public/assets/Tech_blog_logo.svg",
     description:
       "A tech blog web application that allows users to publish posts, submit comments and view content in a dynamic and secure manner",
     images: ["image3.jpg", "image4.jpg"],
@@ -47,7 +57,7 @@ const cardData = [
   {
     id: 5,
     title: "E-Commerce Backend",
-    img: "project2.jpg",
+    img: ecommerce,
     description: "This is the description of Project 2.",
     images: ["image3.jpg", "image4.jpg"],
     githubUrl: "https://github.com/VascoMiguens/E-Commerce-Back-End",
@@ -55,26 +65,17 @@ const cardData = [
   },
   {
     id: 6,
-    title: "E-Commerce Backend",
-    img: "project2.jpg",
-    description: "This is the description of Project 2.",
-    images: ["image3.jpg", "image4.jpg"],
-    githubUrl: "https://github.com/VascoMiguens/Employee-Tracker",
-    deployedUrl: "https://project2.com",
-  },
-  {
-    id: 7,
     title: "Team Profile Generator",
-    img: "project2.jpg",
+    img: team,
     description: "This is the description of Project 2.",
     images: ["image3.jpg", "image4.jpg"],
     githubUrl: "https://github.com/VascoMiguens/Team-Profile-Generator",
     deployedUrl: "https://project2.com",
   },
   {
-    id: 8,
+    id: 7,
     title: "Custom Cravings",
-    img: "project2.jpg",
+    img: "https://github.com/VascoMiguens/custom-cravings/blob/main/assets/logo.png?raw=true",
     description:
       "This project was created primarily to answer the problem of food wastage. It does this by providing meal ideas for people who need to make use of ingredients that they have remaining at home and do not know what to do with. The app, true to name, also allows people to respond to their particular cravings for a certain ingredient or type of cuisine.",
     images: ["image3.jpg", "image4.jpg"],
@@ -82,9 +83,9 @@ const cardData = [
     deployedUrl: "https://cherry-aisha.github.io/custom-cravings/",
   },
   {
-    id: 9,
+    id: 8,
     title: "Weather Dashboard",
-    img: "project2.jpg",
+    img: weather,
     description:
       "A weather dashboard where the current weather and a forecast of the next 5 days is displayed",
     images: ["image3.jpg", "image4.jpg"],
@@ -92,9 +93,9 @@ const cardData = [
     deployedUrl: "https://github.com/VascoMiguens/Weather-Dashboard",
   },
   {
-    id: 10,
+    id: 9,
     title: "Daily Planner",
-    img: "project2.jpg",
+    img: daily,
     description:
       "A daily planner where the current day is displayed when the user opens the page",
     images: ["image3.jpg", "image4.jpg"],
@@ -102,27 +103,27 @@ const cardData = [
     deployedUrl: "https://vascomiguens.github.io/Daily-Planner/",
   },
   {
-    id: 11,
+    id: 10,
     title: "Coding Quiz",
-    img: "project2.jpg",
+    img: coding,
     description: "A timed coding quiz with multiple-choice questions",
     images: ["image3.jpg", "image4.jpg"],
     githubUrl: "https://github.com/VascoMiguens/Coding-Quiz",
     deployedUrl: "https://vascomiguens.github.io/Coding-Quiz/",
   },
   {
-    id: 12,
+    id: 11,
     title: "Password Generator",
-    img: "project2.jpg",
+    img: passgenerator,
     description: "A random password generator",
     images: ["image3.jpg", "image4.jpg"],
     githubUrl: "https://github.com/VascoMiguens/Password-Generator",
     deployedUrl: "https://vascomiguens.github.io/Password-Generator/",
   },
   {
-    id: 13,
+    id: 12,
     title: "Video Player",
-    img: "project2.jpg",
+    img: videoplayer,
     description: "An attempt at creating a video player",
     images: ["image3.jpg", "image4.jpg"],
     githubUrl: "https://github.com/VascoMiguens/VideoPLayer",
@@ -132,40 +133,64 @@ const cardData = [
 ];
 
 export default function GridOfCards() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isHovering, setIsHovering] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleCardHover = (id) => {
     setIsHovering(id);
   };
 
   useEffect(() => {
-    setIsLoaded(true);
+    // Remove the slideInUp class after the animation completes
+    const timer = setTimeout(() => {
+      const container = document.getElementById("portfolio-container");
+      container.classList.remove("slideInUp");
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="container">
-      <div className="row row-cols-1 row-cols-md-3 g-4">
-        {cardData.map((card, index) => (
+    <div id="portfolio-container" className="animated slideInUp">
+      <div className="row row-cols-2 row-cols-xs-1 row-cols-md-3 row-cols-lg-5 ">
+        {cardData.map((card) => (
           <div key={card.id} className="col">
             <Card
-              style={{ transitionDelay: `${index * 150}ms` }}
               onMouseEnter={() => handleCardHover(card.id)}
               onMouseLeave={() => handleCardHover(null)}
+              onClick={() => {
+                setSelectedCard(card);
+                setShowModal(true);
+              }}
             >
               <Card.Img variant="top" src={card.img} />
               {isHovering === card.id && (
                 <Card.Body className="card-body">
-                  <Card.Title className="card-title">{card.title}</Card.Title>
-                  <Button className="card-button" variant="primary">
-                    View More
-                  </Button>
+                  <Button className="card-button">View More</Button>
                 </Card.Body>
               )}
             </Card>
           </div>
         ))}
       </div>
+      {selectedCard && (
+        <Modal show={showModal} onHide={() => setShowModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>{selectedCard.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>{selectedCard.description}</p>
+            <a
+              href={selectedCard.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faGithub} size="2x" />
+            </a>
+          </Modal.Body>
+        </Modal>
+      )}
     </div>
   );
 }
