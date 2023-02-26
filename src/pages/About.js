@@ -1,7 +1,6 @@
 import React from "react";
 import programming from "../programming.json";
 import Lottie from "lottie-react";
-import "./About.css";
 
 export default function About() {
   const defaultOptions = {

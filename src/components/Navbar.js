@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
-        Vasco
+        Vasco Miguéns
       </Link>
       <ul>
         <CustomLink to="/">About</CustomLink>

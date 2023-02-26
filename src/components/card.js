@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "../pages/Portfolio.css";
-import { Card, Button, Modal } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import social from "../assets/social-network-api.png";
 import ecommerce from "../assets/e-commerce-api-image.png";
 import team from "../assets/team-profile-generator.png";
-import weather from "../assets/weather-dashboard.png";
-import daily from "../assets/daily-planner.png";
-import coding from "../assets/coding-quiz.png";
-import passgenerator from "../assets/password-generator.png";
 import videoplayer from "../assets/video-player.png";
 
 const cardData = [
@@ -19,7 +14,7 @@ const cardData = [
     title: "Hairy Styles",
     img: "https://github.com/VascoMiguens/Hairy-Styles/blob/master/public/images/logo.png?raw=true",
     description:
-      "a full stack application that allows users to search for the hair style that they are looking for, and find user posts with the related hairstyle and the information on the hairdresser, location and review of the cut, also including an image of the user final style.",
+      "A full stack application that allows users to search for the hair style that they are looking for, and find user posts with the related hairstyle and the information on the hairdresser, location and review of the cut, also including an image of the user final style.",
     images: ["image1.jpg", "image2.jpg"],
     githubUrl: "https://github.com/VascoMiguens/Hairy-Styles",
     deployedUrl: "https://hairy-styles.herokuapp.com/",
@@ -29,7 +24,7 @@ const cardData = [
     title: "PWA Text Editor",
     img: "https://github.com/VascoMiguens/PWA-Text-Editor/blob/master/client/src/images/logo.png?raw=true",
     description:
-      "a single-page application that functions as a text editor, allowing users to create notes or code snippets with or without an internet connection, this Progressive Web Application (PWA) includes data persistence techniques that provide redundancy in case one of the options is not supported by the browser. The application also functions offline. ",
+      "A single-page application that functions as a text editor, allowing users to create notes or code snippets with or without an internet connection, this Progressive Web Application (PWA) includes data persistence techniques that provide redundancy in case one of the options is not supported by the browser. The application also functions offline. ",
     images: ["image3.jpg", "image4.jpg"],
     githubUrl: "https://github.com/VascoMiguens/PWA-Text-Editor",
     deployedUrl: "https://project2.com",
@@ -84,44 +79,6 @@ const cardData = [
   },
   {
     id: 8,
-    title: "Weather Dashboard",
-    img: weather,
-    description:
-      "A weather dashboard where the current weather and a forecast of the next 5 days is displayed",
-    images: ["image3.jpg", "image4.jpg"],
-    githubUrl: "https://github.com/VascoMiguens/Weather-Dashboard",
-    deployedUrl: "https://github.com/VascoMiguens/Weather-Dashboard",
-  },
-  {
-    id: 9,
-    title: "Daily Planner",
-    img: daily,
-    description:
-      "A daily planner where the current day is displayed when the user opens the page",
-    images: ["image3.jpg", "image4.jpg"],
-    githubUrl: "https://github.com/VascoMiguens/Daily-Planner",
-    deployedUrl: "https://vascomiguens.github.io/Daily-Planner/",
-  },
-  {
-    id: 10,
-    title: "Coding Quiz",
-    img: coding,
-    description: "A timed coding quiz with multiple-choice questions",
-    images: ["image3.jpg", "image4.jpg"],
-    githubUrl: "https://github.com/VascoMiguens/Coding-Quiz",
-    deployedUrl: "https://vascomiguens.github.io/Coding-Quiz/",
-  },
-  {
-    id: 11,
-    title: "Password Generator",
-    img: passgenerator,
-    description: "A random password generator",
-    images: ["image3.jpg", "image4.jpg"],
-    githubUrl: "https://github.com/VascoMiguens/Password-Generator",
-    deployedUrl: "https://vascomiguens.github.io/Password-Generator/",
-  },
-  {
-    id: 12,
     title: "Video Player",
     img: videoplayer,
     description: "An attempt at creating a video player",
@@ -133,12 +90,14 @@ const cardData = [
 ];
 
 export default function GridOfCards() {
-  const [isHovering, setIsHovering] = useState(null);
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [expandedCardId, setExpandedCardId] = useState(null);
 
-  const handleCardHover = (id) => {
-    setIsHovering(id);
+  const handleCardClick = (id) => {
+    if (expandedCardId === id) {
+      setExpandedCardId(null);
+    } else {
+      setExpandedCardId(id);
+    }
   };
 
   useEffect(() => {
@@ -153,44 +112,39 @@ export default function GridOfCards() {
 
   return (
     <div id="portfolio-container" className="animated slideInUp">
-      <div className="row row-cols-2 row-cols-xs-1 row-cols-md-3 row-cols-lg-5 ">
+      <div className="row row-cols-2 row-cols-xs-1 row-cols-md-2 row-cols-lg-3 ">
         {cardData.map((card) => (
-          <div key={card.id} className="col">
-            <Card
-              onMouseEnter={() => handleCardHover(card.id)}
-              onMouseLeave={() => handleCardHover(null)}
-              onClick={() => {
-                setSelectedCard(card);
-                setShowModal(true);
-              }}
-            >
+          <div className="" key={card.id}>
+            <Card id={`card-${card.id}`} className="card">
               <Card.Img variant="top" src={card.img} />
-              {isHovering === card.id && (
-                <Card.Body className="card-body">
+              <h2 className="card-title">{card.title}</h2>
+              <Card.Body className="card-body">
+                <Card.Text className="card-description">
+                  {" "}
+                  {expandedCardId === card.id
+                    ? card.description
+                    : `${card.description.slice(0, 100)}...`}
+                </Card.Text>
+                <Button
+                  variant="link"
+                  className="card-button"
+                  onClick={() => handleCardClick(card.id)}
+                >
+                  {expandedCardId === card.id ? "Hide" : "Read More"}
+                </Button>
+                <div className="card-buttons">
+                  <FontAwesomeIcon
+                    className="card-icon"
+                    icon={faGithub}
+                    size="2x"
+                  />
                   <Button className="card-button">View More</Button>
-                </Card.Body>
-              )}
+                </div>
+              </Card.Body>
             </Card>
           </div>
         ))}
       </div>
-      {selectedCard && (
-        <Modal show={showModal} onHide={() => setShowModal(false)}>
-          <Modal.Header closeButton>
-            <Modal.Title>{selectedCard.title}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <p>{selectedCard.description}</p>
-            <a
-              href={selectedCard.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faGithub} size="2x" />
-            </a>
-          </Modal.Body>
-        </Modal>
-      )}
     </div>
   );
 }
