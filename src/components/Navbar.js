@@ -4,14 +4,14 @@ import React from "react";
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <Link to="/portfolio-react/about" className="logo">
+      <Link to="/about" className="logo">
         Vasco Miguéns
       </Link>
       <ul>
-        <CustomLink to="/portfolio-react/about">About</CustomLink>
-        <CustomLink to="/portfolio-react/portfolio">Portfolio</CustomLink>
-        <CustomLink to="/portfolio-react/contact">Contact</CustomLink>
-        <CustomLink to="/portfolio-react/resume">Resume</CustomLink>
+        <CustomLink to="/about">About</CustomLink>
+        <CustomLink to="/portfolio">Portfolio</CustomLink>
+        <CustomLink to="/contact">Contact</CustomLink>
+        <CustomLink to="/resume">Resume</CustomLink>
       </ul>
     </nav>
   );
