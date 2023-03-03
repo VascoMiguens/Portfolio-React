@@ -77,6 +77,10 @@ h1 {
   width: 70%;
 }
 
+.me-image {
+  height: 300px;
+}
+
 /* Portfolio */
 #portfolio-container {
   transform: translateY(50px);
