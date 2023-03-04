@@ -6,11 +6,11 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <Router basename="/portfolio-react">
+    <>
       <Navbar />
       <div className="container">
         <Routes>
@@ -21,7 +21,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </Router>
+    </>
   );
 }
 
