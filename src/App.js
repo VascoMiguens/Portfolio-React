@@ -6,22 +6,22 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
 import Footer from "./components/Footer";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <Router basename="/portfolio-react">
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path="/portfolio-react" element={<About />} />
-          <Route path="/portfolio-react/portfolio" element={<Portfolio />} />
-          <Route path="/portfolio-react/contact" element={<Contact />} />
-          <Route path="/portfolio-react/resume" element={<Resume />} />
+          <Route path="/" element={<About />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/resume" element={<Resume />} />
         </Routes>
       </div>
       <Footer />
-    </>
+    </Router>
   );
 }
 
