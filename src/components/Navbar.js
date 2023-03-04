@@ -4,18 +4,14 @@ import React from "react";
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <Link to={`${process.env.PUBLIC_URL}/`} className="logo">
+      <Link to="/" className="logo">
         Vasco Miguéns
       </Link>
       <ul>
-        <CustomLink to={`${process.env.PUBLIC_URL}/`}>About</CustomLink>
-        <CustomLink to={`${process.env.PUBLIC_URL}/portfolio`}>
-          Portfolio
-        </CustomLink>
-        <CustomLink to={`${process.env.PUBLIC_URL}/contact`}>
-          Contact
-        </CustomLink>
-        <CustomLink to={`${process.env.PUBLIC_URL}/resume`}>Resume</CustomLink>
+        <CustomLink to="/">About</CustomLink>
+        <CustomLink to="/portfolio">Portfolio</CustomLink>
+        <CustomLink to="/contact">Contact</CustomLink>
+        <CustomLink to="/resume">Resume</CustomLink>
       </ul>
     </nav>
   );

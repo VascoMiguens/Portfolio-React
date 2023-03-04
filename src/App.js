@@ -10,17 +10,20 @@ import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <HashRouter basename="/portfolio-react">
-      <Navbar />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/resume" element={<Resume />} />
-        </Routes>
-      </div>
-      <Footer />
+    <HashRouter basename="/">
+      <>
+        <Navbar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Navigate to="/about" />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/resume" element={<Resume />} />
+          </Routes>
+        </div>
+        <Footer />
+      </>
     </HashRouter>
   );
 }
