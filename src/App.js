@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
