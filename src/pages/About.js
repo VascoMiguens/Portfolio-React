@@ -31,7 +31,7 @@ export default function About() {
               </p>
             </div>
             <div style={{ width: "30%" }}>
-              <img className="me-image" src={me} />
+              <img className="me-image" alt="ME" src={me} />
             </div>
           </div>
         </div>

@@ -6,11 +6,11 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
 import Footer from "./components/Footer";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <HashRouter basename="/about">
       <Navbar />
       <div className="container">
         <Routes>
@@ -22,7 +22,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
-    </>
+    </HashRouter>
   );
 }
 
