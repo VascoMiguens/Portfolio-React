@@ -7,7 +7,6 @@ import Contact from "./pages/Contact";
 import Resume from "./pages/Resume";
 import Footer from "./components/Footer";
 import { Navigate, Route, Routes } from "react-router-dom";
-import React from "react";
 
 function App() {
   return (
