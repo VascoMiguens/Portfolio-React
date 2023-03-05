@@ -22,7 +22,7 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: pathname, end: true });
   return (
     <li className={isActive ? "active" : ""}>
-      <Link to={`${process.env.PUBLIC_URL}${to}`} {...props}>
+      <Link to={to} {...props}>
         {children}
       </Link>
     </li>
