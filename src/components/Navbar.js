@@ -8,10 +8,10 @@ export default function Navbar() {
         Vasco Miguéns
       </Link>
       <ul>
-        <CustomLink to="/portfolio-react">About</CustomLink>
-        <CustomLink to="/portfolio-react/portfolio">Portfolio</CustomLink>
-        <CustomLink to="/portfolio-react/contact">Contact</CustomLink>
-        <CustomLink to="/portfolio-react/resume">Resume</CustomLink>
+        <CustomLink to="/">About</CustomLink>
+        <CustomLink to="/portfolio">Portfolio</CustomLink>
+        <CustomLink to="/contact">Contact</CustomLink>
+        <CustomLink to="/resume">Resume</CustomLink>
       </ul>
     </nav>
   );
