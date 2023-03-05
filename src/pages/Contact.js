@@ -56,7 +56,7 @@ function Contact() {
         <label htmlFor="message">Message:</label>
         <textarea id="message" value={message} onChange={handleMessageChange} />
       </div>
-      <button className="form-btn" type="submit">
+      <button className="card-button" type="submit">
         Send
       </button>
       {!isFormValid && (
