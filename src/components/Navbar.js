@@ -1,14 +1,15 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, useMatch } from "react-router-dom";
 import React from "react";
+import LogoV from "../assets/logo.svg";
 
 export default function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
-        Vasco Miguéns
+        <img src={LogoV} alt="logo" />
       </Link>
       <ul>
-        <CustomLink to="/">About me</CustomLink>
+        <CustomLink to="/">Home</CustomLink>
         <CustomLink to="/portfolio">Portfolio</CustomLink>
         <CustomLink to="/contact">Contact</CustomLink>
         <CustomLink to="/resume">Resume</CustomLink>
