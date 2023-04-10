@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div className="home row mt-5 d-flex h-100 flex-column col-lg-6">
-        <p>Hi, my names is</p>
+      <div className="home row mt-md-2  d-flex h-100 flex-column col-lg-6">
+        <h2>Meet</h2>
         <h1>Vasco Miguéns</h1>
         <p>
           With a passion for sports and computers (yes, it's a weird mix, but it
