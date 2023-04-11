@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-
+import me from "../assets/mecartoon.png";
 const Home = () => {
   return (
-    <>
-      <div className="home row mt-md-2  d-flex h-100 flex-column col-lg-6">
+    <div className="row row row-cols-1 d-flex row-cols-sm-1 row-cols-md-1 row-cols-lg-2 ">
+      <div className="home">
         <h2>Meet</h2>
         <h1>Vasco Miguéns</h1>
         <p>
@@ -21,8 +21,10 @@ const Home = () => {
           <div className="contact-btn">Contact me</div>
         </Link>
       </div>
-      <div className=""></div>
-    </>
+      <div className="me">
+        <img src={me} alt="me" />
+      </div>
+    </div>
   );
 };
 
