@@ -11,7 +11,7 @@ const FullCard = ({ cardData }) => {
               index === 1 ? "flex-row-reverse" : ""
             }`}
           >
-            <img src={data.background} alt="preview" />
+            <img src={data.img} alt="preview" />
             <div className="project">
               <h2>{data.title}</h2>
               <p>{data.description}</p>

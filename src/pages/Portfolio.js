@@ -6,12 +6,13 @@ import videoplayer from "../assets/video-player.png";
 import FullCard from "../components/FullCard";
 import RowCard from "../components/RowCards";
 import HSbg from "../assets/hairy-styles-bg.png";
+import BSE from "../assets/book-search-engine.jpg";
 
 const cardData = [
   {
     id: 1,
     title: "Hairy Styles",
-    img: "https://github.com/VascoMiguens/Hairy-Styles/blob/master/public/images/logo.png?raw=true",
+    img: HSbg,
     tools: [
       "Node.js",
       "Express.js",
@@ -27,7 +28,6 @@ const cardData = [
       "A full stack application that allows users to search for the hair style that they are looking for, and find user posts with the related hairstyle and the information on the hairdresser, location and review of the cut, also including an image of the hair style",
     githubUrl: "https://github.com/VascoMiguens/Hairy-Styles",
     deployedUrl: "https://hairy-styles.herokuapp.com/",
-    background: HSbg,
   },
   {
     id: 2,
@@ -41,6 +41,26 @@ const cardData = [
   },
   {
     id: 3,
+    title: "Book Search Engine",
+    img: BSE,
+    tools: ["React", "Node.js", "Exmpress.js", "MongoDB", "GraphQl"],
+    description:
+      "This portfolio project is a MERN stack book search engine that utilizes the Google Books API, a RESTful API that allows users to search for and save books",
+    githubUrl: "https://github.com/VascoMiguens/Book-Search-Engine",
+    deployedUrl: "https://book-serch-engine-graphqlapi.herokuapp.com/",
+  },
+  {
+    id: 4,
+    title: "Video Player",
+    img: videoplayer,
+    tools: ["Html", "CSS", "JavaScript"],
+    description:
+      "I created a custom video player using HTML, CSS, and JavaScript. The player includes standard playback controls such as play, pause, volume, and progress bar.In addition, I added custom features such as playback and fullscreen mode.  I designed the interface using CSS to give it a modern, intuitive look and feel. The player is fully responsive and works on all modern web browsers.This project showcases my skills in front-end web development and my ability to create interactive, user-friendly interfaces",
+    githubUrl: "https://github.com/VascoMiguens/VideoPLayer",
+    deployedUrl: "https://vascomiguens.github.io/VideoPLayer/",
+  },
+  {
+    id: 5,
     title: "Social Network API",
     img: social,
     tools: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
@@ -50,7 +70,7 @@ const cardData = [
     deployedUrl: "https://www.youtube.com/watch?v=OKnIwScJEXg&t=3s",
   },
   {
-    id: 4,
+    id: 6,
     title: "MVC Tech Blog",
     img: "https://raw.githubusercontent.com/VascoMiguens/MVC-Tech-Blog/ce1aec552fe323f374c335afdc5bf358a995139c/public/assets/Tech_blog_logo.svg",
     tools: [
@@ -71,7 +91,7 @@ const cardData = [
     deployedUrl: "https://mvc-techie-blog.herokuapp.com/",
   },
   {
-    id: 5,
+    id: 7,
     title: "E-Commerce Backend",
     img: ecommerce,
     tools: ["Node.js", "Express.js", "MySQL", "Sequelize"],
@@ -82,7 +102,7 @@ const cardData = [
     deployedUrl: "https://www.youtube.com/watch?v=-5xdDkPGAdk",
   },
   {
-    id: 6,
+    id: 8,
     title: "Team Profile Generator",
     img: team,
     tools: ["Node.js", "Inquirer", "Jest", "MySQL"],
@@ -93,7 +113,7 @@ const cardData = [
     deployedUrl: "https://www.youtube.com/watch?v=I0ftkBykpaccom",
   },
   {
-    id: 7,
+    id: 9,
     title: "Custom Cravings",
     img: "https://github.com/VascoMiguens/custom-cravings/blob/main/assets/logo.png?raw=true",
     tools: ["Html", "CSS", "JavaScript", "API"],
@@ -102,17 +122,6 @@ const cardData = [
     images: ["image3.jpg", "image4.jpg"],
     githubUrl: "https://github.com/VascoMiguens/custom-cravings",
     deployedUrl: "https://cherry-aisha.github.io/custom-cravings/",
-  },
-  {
-    id: 8,
-    title: "Video Player",
-    img: videoplayer,
-    tools: ["Html", "CSS", "JavaScript"],
-    description:
-      "I created a custom video player using HTML, CSS, and JavaScript. The player includes standard playback controls such as play, pause, volume, and progress bar.In addition, I added custom features such as playback and fullscreen mode.  I designed the interface using CSS to give it a modern, intuitive look and feel. The player is fully responsive and works on all modern web browsers.This project showcases my skills in front-end web development and my ability to create interactive, user-friendly interfaces",
-    images: ["image3.jpg", "image4.jpg"],
-    githubUrl: "https://github.com/VascoMiguens/VideoPLayer",
-    deployedUrl: "https://vascomiguens.github.io/VideoPLayer/",
   },
 ];
 

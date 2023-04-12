@@ -40,10 +40,10 @@ const RowCard = ({ cardData }) => {
                   ))}
                 </div>
                 <div className="button-container">
-                  <a href={data.githubUrl}>
+                  <a href={data.githubUrl} target="_blank" rel="noreferrer">
                     <FaGithub />
                   </a>
-                  <a href={data.deployedUrl}>
+                  <a href={data.deployedUrl} target="_blank" rel="noreferrer">
                     <FaShareSquare />
                   </a>
                 </div>
