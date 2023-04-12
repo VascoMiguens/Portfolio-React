@@ -88,7 +88,7 @@ function Contact() {
               name="message"
             />
           </div>
-          <button className="form-button" type="submit">
+          <button className="btn" type="submit">
             Send
           </button>
           {!isEmailValid && (

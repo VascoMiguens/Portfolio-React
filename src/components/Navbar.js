@@ -1,18 +1,32 @@
 import { Link, useMatch } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import LogoV from "../assets/logo.svg";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <nav className="navbar">
       <Link to="/" className="logo">
         <img src={LogoV} alt="logo" />
       </Link>
-      <ul>
-        <CustomLink to="/">Home</CustomLink>
-        <CustomLink to="/portfolio">Portfolio</CustomLink>
-        <CustomLink to="/contact">Contact</CustomLink>
-        <CustomLink to="/resume">Resume</CustomLink>
+      <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <GiHamburgerMenu />
+      </div>
+      <ul className={isMenuOpen ? "open" : ""}>
+        <CustomLink to="/" onClick={() => setIsMenuOpen(false)}>
+          Home
+        </CustomLink>
+        <CustomLink to="/portfolio" onClick={() => setIsMenuOpen(false)}>
+          Portfolio
+        </CustomLink>
+        <CustomLink to="/contact" onClick={() => setIsMenuOpen(false)}>
+          Contact
+        </CustomLink>
+        <CustomLink to="/resume" onClick={() => setIsMenuOpen(false)}>
+          Resume
+        </CustomLink>
       </ul>
     </nav>
   );

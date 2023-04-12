@@ -15,7 +15,7 @@ const RowCard = ({ cardData }) => {
 
   return (
     <>
-      <div className="row row-cols-1 d-flex row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
+      <div className="portfolio-row row row-cols-1 d-flex my-5 row-cols-sm-1 row-cols-md-1 row-cols-lg-2">
         {cardData.slice(2).map((data, index) => (
           <div
             key={data.id}

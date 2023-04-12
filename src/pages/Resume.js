@@ -115,15 +115,15 @@ const TypingEffect = () => {
           </div>
         </div>
         <div className="resume">
-          <Button
+          <button
             variant="Link"
             href="https://drive.google.com/file/d/1dlMc4oS4hawZYHAvSZjaU_f4UyxHolTh/preview"
             target="_blank"
             rel="noreferrer"
-            className="card-button"
+            className="btn"
           >
-            View Resume
-          </Button>
+            Resume
+          </button>
         </div>
       </div>
     </>

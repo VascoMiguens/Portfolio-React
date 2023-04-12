@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import me from "../assets/mecartoon.png";
+
 const Home = () => {
   return (
-    <div className="row row row-cols-1 d-flex row-cols-sm-1 row-cols-md-1 row-cols-lg-2 ">
-      <div className="home">
+    <div className="row row-cols-1 my-2 row-cols-md-1 row-cols-lg-2">
+      <div className="me order-lg-2 col-lg-6">
+        <img src={me} alt="me" />
+      </div>
+      <div className="home order-lg-1 col-lg-6">
         <h2>Meet</h2>
         <h1>Vasco Miguéns</h1>
         <p>
@@ -18,11 +22,8 @@ const Home = () => {
           his friends
         </p>
         <Link style={{ "text-decoration": "none" }} to={"/contact"}>
-          <div className="contact-btn">Contact me</div>
+          <div className="btn">Contact me</div>
         </Link>
-      </div>
-      <div className="me">
-        <img src={me} alt="me" />
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const FullCard = ({ cardData }) => {
           <div
             key={data.id}
             className={`full-card-container ${
-              index === 1 ? "flex-row-reverse" : ""
+              index === 1 ? "flex-lg-row-reverse" : ""
             }`}
           >
             <img src={data.img} alt="preview" />
