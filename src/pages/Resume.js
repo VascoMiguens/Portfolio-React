@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const frontEndProficiencies = [
   "HTML",
@@ -115,15 +116,14 @@ const TypingEffect = () => {
           </div>
         </div>
         <div className="resume">
-          <button
-            variant="Link"
+          <a
             href="https://drive.google.com/file/d/1dlMc4oS4hawZYHAvSZjaU_f4UyxHolTh/preview"
             target="_blank"
             rel="noreferrer"
             className="btn"
           >
             Resume
-          </button>
+          </a>
         </div>
       </div>
     </>
