@@ -37,7 +37,7 @@ const cardData = [
     description:
       "A single-page application that functions as a text editor, allowing users to create notes or code snippets with or without an internet connection, this Progressive Web Application (PWA) includes data persistence techniques that provide redundancy in case one of the options is not supported by the browser ",
     githubUrl: "https://github.com/VascoMiguens/PWA-Text-Editor",
-    deployedUrl: "https://pwa-jate-text-editor.herokuapp.com/",
+    deployedUrl: "https://bucolic-duckanoo-f0408c.netlify.app/",
   },
   {
     id: 3,
